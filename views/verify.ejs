@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📰 News Express</title>
+
+    <!--External CSS-->
+    <!--<link rel="stylesheet" href="css/registerstyle.css">-->
+
+    <!-- CSS Bootstrap-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #box{
+            display: flex;
+            justify-content: center;
+            padding-bottom: 5%;
+            padding-top: 5%;
+        }
+        .navheading{
+            width: 60px;
+            margin-right: 1%;
+        }
+        .heading{
+            font-family: 'Gelasio', serif;
+            font-size: 40px;
+        }  
+        .verifybox{
+            background-color: rgb(182, 182, 182);
+            border-radius: 1%;
+            padding: 5%;
+        }
+        @media (max-width: 450px) {
+            .navheading{
+                width: 50px;
+            }
+            .heading{
+                font-size: 35px;
+            } 
+            .verifybox{
+                margin-left: 4%;
+                margin-right: 4%;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <% if(otpwrong) { %>
+
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+          <i class="fa-solid fa-triangle-exclamation bi flex-shrink-0 me-2"></i>
+          <div>
+            Verification code is wrong enter again!
+          </div>
+        </div>
+
+    <% } %>
+    <section id="box">
+        <div style="text-align: center;">
+            <img src="images/news-report.png" class="navheading"  alt="logo" style="margin-bottom: 15px;">
+            <span class="h1 heading">News Express</span><br><br>
+            <h3>Account Verification</h3>
+            <p>We had send a verification code to <span style="color: blue"><%=mail%>.</span></p><br>
+            <form class="row g-3 verifybox" action="/emailverify" method="post">
+                <div class="input-grou">
+                  <input type="text" class="form-control" id="validationdefaultotp" aria-describedby="inputGroupPrepend1" placeholder="Enter verification code" name="otp" autocomplete="off" required>
+                </div><br><br><br>
+                <div class="col-12">
+                  <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Script Bootstrap-->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
