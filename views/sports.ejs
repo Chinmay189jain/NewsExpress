@@ -1,0 +1,30 @@
+<%- include("partials/header"); -%>
+
+<section id="card-section">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <% newsSports.forEach(function(post){ %>
+  
+      <% if(post.title && post.urlToImage && post.url && post.content) { %>
+  
+        <div class="col">
+          <div class="card">
+            <img src="<%=post.urlToImage%>" class="card-img-top" alt="img">
+            <div class="card-body">
+              <h5 class="card-title card-heading"><%=post.title%></h5>
+              <p class="card-text"><%=post.description%><%=post.content%></p>
+            </div>
+            <div class="card-body">
+              <a href="<%=post.url%>" target="_blank" card-link">Read more</a>
+            </div>
+          </div>
+        </div> 
+  
+      <% } %>  
+  
+    <% }) %>
+  
+  </div>
+</section>
+
+<%- include("partials/footer"); -%>

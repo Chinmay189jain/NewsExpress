@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📰 News Express</title>
+
+    <!-- CSS Default-->
+    <link rel="stylesheet" href="css/weatherstyle.css">
+    
+    <!-- CSS Bootstrap-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gelasio&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Nav Bar-->
+    <section>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <img src="images/news-report.png" class="navheading" alt="logo">
+          <span class="navbar-text heading" style="color: white;">News Express</span>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link top-button" onclick="document.homeAction.submit();" type="submit" style="text-align:center">Home</a>
+              <a class="nav-link top-button" onclick="document.sportsAction.submit();" type="submit" style="text-align:center">Sports</a>
+              <a class="nav-link top-button" onclick="document.entertainmentAction.submit();" type="submit" style="text-align:center">Entertainment</a>
+              <a class="nav-link top-button" onclick="document.internationalAction.submit();" type="submit" style="text-align:center">International</a>
+              <a class="nav-link top-button" onclick="document.weatherAction.submit();" type="submit" style="text-align:center">Weather</a>
+              <a class="nav-link top-button"onclick="document.logoutAction.submit();" type="submit" style="text-align:center">Log Out</a>
+            </div>
+            <form action="/home" method="post" name="homeAction"></form>
+            <form action="/sports" method="post" name="sportsAction"></form>
+            <form action="/entertainment" method="post" name="entertainmentAction"></form>
+            <form action="/international" method="post" name="internationalAction"></form>
+            <form action="/weather" method="post" name="weatherAction"></form>
+            <form action="/signout" method="post" name="logoutAction"></form>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <section id="weather" style="background-image: url('images/weather.jpg');">
+        <div class="weather-box">
+            <form action="/city" method="post" style="text-align: center;">
+                <input class="form-control me-2" type="text" placeholder="Enter City" aria-label="Search" name="cityName" id="validationDefault01" autocomplete="off" required>
+                <br>
+                <button class="btn btn-danger" type="submit">Search</button>
+            </form>
+            <br>
+            <div class="content">
+              <p class="weather-heading"><%=weatherLocation%></p>
+              <p class="temp"><%=weatherTemperature%></p>
+              <img src="<%=weatherUrl%>"><span><%=weatherCond%></span>
+              <br><br>
+              <div><%=weatherHumidity%></div>
+              <div><%=weatherSpeed%></div>
+            </div>
+        </div>
+
+    </section>
+
+    <%- include("partials/footer"); -%>
