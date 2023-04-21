@@ -1,5 +1,4 @@
 # NewsExpress
-## Output : [Website Link](https://news-express.up.railway.app/)
 
 ## <ins>Description:</ins>
 ### It is a news website which display current news using APIs. It contains proper authentication and security. In this website there is a signup option for creating user account or user can directly sign in with google. Without signin user cannot access home page. This website display different news like Sports News, Entertainment News, Weather News. It also have a logout option which redirect it to the signin page.
